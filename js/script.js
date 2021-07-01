@@ -2,21 +2,29 @@
 var userAge = parseInt(prompt("Inserisci la tua èta"));
 console.log("userAge: ", userAge);
 
-var kilometers = parseInt(prompt("Inserisci i chilometri da percorrere"));
+var kilometers = parseFloat(prompt("Inserisci i chilometri da percorrere"));
 console.log("kilometers: ", kilometers);
 
-var discount = 1;
-var ticketPrice = kilometers * 0.21
+var discount;
+var ticketPrice;
 
 // Discount calc
-if (userAge < 18) {
-    discount  =  20 / 100;
-} else if (userAge > 65) {
-    discount = 40 / 100;
+
+if (userAge >= 18 && userAge <= 65) {
+    discount = 1  
+} else if (userAge < 18) {
+    discount = 0.8;
+} else {
+    discount = 0.6
 }
-console.log("ticketPrice: ", ticketPrice)
+
+
 console.log("discount: ", discount)
 
 // Ticket price calc
-ticketPrice = ticketPrice - (ticketPrice * discount);
+ticketPrice = kilometers * 0.21
+ticketPrice = ticketPrice * discount
 console.log("ticketPrice: ", ticketPrice);
+
+var price = document.getElementById("price");
+price.innerHTML = ticketPrice.toFixed(2);
