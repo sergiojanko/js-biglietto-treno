@@ -5,6 +5,13 @@ console.log("userAge: ", userAge);
 var kilometers = parseFloat(prompt("Inserisci i chilometri da percorrere"));
 console.log("kilometers: ", kilometers);
 
+// Data validation
+
+if ((userAge <= 0) || (kilometers <= 0)) {
+    alert("ERRORE: Hai inserito dei valori negativi o uguali a zero")
+    window.location.reload()
+}
+
 var discount;
 var ticketPrice;
 
